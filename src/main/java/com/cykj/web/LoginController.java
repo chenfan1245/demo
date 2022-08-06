@@ -9,6 +9,8 @@ import com.cykj.service.TblpowerService;
 import com.cykj.service.TblrolePowerService;
 import com.cykj.service.TblroleService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -52,6 +54,11 @@ public class LoginController {
         return "userList";
     }
     /*查询数据*/
+    @ApiOperation(value = "find",notes = "查询用户数据方法")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "acc",value = "用户账号"),
+            @ApiImplicitParam(name = "name",value = "用户姓名")
+    })
     @RequestMapping(value="/find",produces = { "text/html;charset=UTF-8;", "application/json;charset=UTF-8;" })
     public  String find(String acc,String name){
         System.out.println("userList-----------");
@@ -62,6 +69,10 @@ public class LoginController {
         return json;
     }
     /*删除*/
+    @ApiOperation(value = "del",notes = "删除用户方法")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id",value = "用户ID"),
+    })
     @RequestMapping("/del")
     public  String del(String id){
         if (tbUserService.del(Long.parseLong(id))){
@@ -73,6 +84,13 @@ public class LoginController {
         }
     }
     /*添加*/
+    @ApiOperation(value = "add",notes = "新增用户方法")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "acc",value = "用户账号"),
+            @ApiImplicitParam(name = "pwd",value = "用户密码"),
+            @ApiImplicitParam(name = "age",value = "用户年龄"),
+            @ApiImplicitParam(name = "address",value = "用户地址")
+    })
     @RequestMapping("/add")
     public  String add(String acc, String pwd, String age,String address){
         TblUser tblUser = new TblUser(acc,pwd,Long.parseLong(age),address,"");
@@ -83,6 +101,13 @@ public class LoginController {
         }
     }
     /*修改*/
+    @ApiOperation(value = "upd",notes = "修改用户方法")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id",value = "用户ID"),
+            @ApiImplicitParam(name = "pwd",value = "用户密码"),
+            @ApiImplicitParam(name = "age",value = "用户年龄"),
+            @ApiImplicitParam(name = "address",value = "用户地址")
+    })
     @RequestMapping("/upd")
     public  String upd(String id, String pwd, String age,String address){
         if (tbUserService.upd(Long.parseLong(id),pwd,Long.parseLong(age),address)){
