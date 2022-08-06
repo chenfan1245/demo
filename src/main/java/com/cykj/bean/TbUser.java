@@ -1,13 +1,21 @@
 package com.cykj.bean;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel("用户实体类")
 public class TbUser {
-
+  @ApiModelProperty(value = "用户ID")
   private String userid;
+  @ApiModelProperty(value = "用户姓名")
   private String username;
+  @ApiModelProperty(value = "用户密码")
   private String password;
+  @ApiModelProperty(value = "用户年龄")
   private long age;
+  @ApiModelProperty(value = "用户地址")
   private String address;
+  @ApiModelProperty(value = "用户图片地址")
   private String image;
 
   public TbUser() {

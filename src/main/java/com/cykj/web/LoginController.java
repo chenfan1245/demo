@@ -8,6 +8,8 @@ import com.cykj.service.TbUserService;
 import com.cykj.service.TblpowerService;
 import com.cykj.service.TblrolePowerService;
 import com.cykj.service.TblroleService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +28,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/admin")
+@Api(value = "接口说明",tags = "接口说明")
 public class LoginController {
 
     @Autowired
@@ -43,6 +46,7 @@ public class LoginController {
 
     /*进入页面*/
     @RequestMapping("/userList")
+    @ApiOperation(value = "userList",notes = "获取用户界面")
     public String userList(){
         System.out.println("进入用户查询");
         return "userList";
