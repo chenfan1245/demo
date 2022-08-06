@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.mapper.TblroleMapper"><!--命名空间属性（必须写）-->
+    <!--查询角色-->
+    <select id="find" resultType="com.cykj.bean.Tblrole">
+        select * from tblrole
+    </select>
+
+    <!--查询角色，分页显示-->
+    <select id="findRole" resultType="com.cykj.bean.Tblrole">
+        select * from tblrole
+    </select>
+
+    <!--查询数据库条数-->
+    <select id="count" resultType="int">
+        select count(*) as num from tblrole
+    </select>
+
+    <!--检查角色姓名是否重复-->
+    <select id="checkRoleName" resultType="com.cykj.bean.Tblrole">
+        select * from tblrole where roleName = #{roleName}
+    </select>
+
+    <!--新增角色-->
+    <insert id="add" >
+        insert into tblrole(roleName,mydescribe) values (#{roleName},#{mydescribe})
+    </insert>
+
+    <!--修改角色-->
+    <update id="upd">
+        update tblrole set mydescribe = #{mydescribe} where roleId = #{roleId}
+    </update>
+
+    <!--删除角色-->
+    <delete id="del">
+        delete from tblrole where roleId = #{roleId}
+    </delete>
+
+    <!--判断角色是否员工应用-->
+    <select id="checkRole" resultType="com.cykj.bean.Tblrole">
+        SELECT DISTINCT a.roleId FROM tblrole a
+        INNER JOIN tblstaff b ON a.roleId = b.roleId
+        WHERE a.roleId = #{roleId}
+    </select>
+
+    <!--查询角色-->
+    <select id="selRole" resultType="com.cykj.bean.Tblrole">
+        select * from tblrole where roleId = #{roleId}
+    </select>
+</mapper>

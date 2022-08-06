@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.mapper.TblrolePowerMapper"><!--命名空间属性（必须写）-->
+    <!--检查该角色是否有该权限-->
+    <select id="checkPower" resultType="com.cykj.bean.Tblrolepower">
+        SELECT * FROM tblrolepower WHERE roleId = #{roleId} AND powerId = #{powerId}
+    </select>
+    <!--给角色添加权限-->
+    <insert id="addPower" >
+        INSERT INTO tblrolepower(roleId,powerId) VALUES(#{roleId},#{powerId})
+    </insert>
+    <!--给角色删除权限-->
+    <delete id="delPower">
+        DELETE FROM tblrolepower WHERE roleId = #{roleId} AND powerId = #{powerId}
+    </delete>
+    <!--删除角色下的权限-->
+    <delete id="delRolePower">
+        delete from tblrolepower where roleId = #{roleId}
+    </delete>
+</mapper>

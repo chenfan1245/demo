@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.mapper.TblpowerMapper">
+    <!--查询所有权限-->
+    <select id="findAllPower" resultType="com.cykj.bean.Tblpower">
+        select * from tblpower
+    </select>
+    <!--查找角色下的权限-->
+    <select id="findRolePower" resultType="com.cykj.bean.Tblpower">
+        SELECT a.* FROM tblpower a ,tblrolepower b WHERE b.powerId = a.powerId AND b.roleId = #{roleId} ORDER BY powerId
+    </select>
+    <!--查询权限下的所有子权限-->
+    <select id="findChilePower" resultType="com.cykj.bean.Tblpower">
+        SELECT * FROM tblpower WHERE parentId = #{parentId}
+    </select>
+    <!--查询非角色下的权限-->
+    <select id="selRolePower" resultType="com.cykj.bean.Tblpower">
+        SELECT a.* FROM tblpower a ,tblrolepower b WHERE b.powerId = a.powerId AND b.roleId != #{roleId} ORDER BY powerId
+    </select>
+</mapper>
