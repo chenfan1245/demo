@@ -251,7 +251,7 @@ public class LoginController {
     @RequestMapping("/checkacc")
     public  String checkAcc(@RequestBody String acc){
         System.out.println(acc);
-        return "1";
+        return "2";
     }
 
     //1.springApplication 静态调用run方法，从静态run方法中new一个自己的实例，并调用实例的run方法
