@@ -3,17 +3,32 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cykj.mapper.TblgoodsMapper">
-    <delete id="deleteGoods" parameterType="String">
-        delete from tblgoods where id=#{id}fc
+    <!-- 删除商品 -->
+    <delete id="deleteGoods">
+        delete from tblgoods where id=#{id}
     </delete>
 
-    <!--查询所有商品信息-->
-    <select id="findAllGoods" resultType="com.cykj.bean.Tblpower">
-
+    <!-- 查询所有商品信息 -->
+    <select id="findAllGoods" resultType="com.cykj.bean.Tblgoods">
+        select * from tblgoods
+        <where>
+            <if test="goodsTitle != null and goodsTitle != ''">
+                and goodsTitle like concat ('%',#{goodsTitle},'%')
+            </if>
+            <if test="goodsType != null and goodsType != ''">
+                and goodsType like concat ('%',#{goodsType},'%')
+            </if>
+        </where>
     </select>
     <!--增加商品信息-->
     <insert id="addGoods" parameterType="com.cykj.bean.Tblgoods">
     insert into tblgoods(goodsTitle,price,goodsType)values(#{goodsTitle},#{price},#{goodsType})
     </insert>
+
+
+    <!--修改商品信息-->
+    <update id="updGoods">
+        update tblgoods set goodsTitle=#{goodsTitle},price=#{price},goodsType=#{goodsType} where id=#{id}
+    </update>
 
 </mapper>
