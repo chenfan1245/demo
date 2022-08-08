@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.cykj.bean.TblUser;
 import com.cykj.bean.Tblpower;
 import com.cykj.bean.Tblrole;
-import com.cykj.service.TbUserService;
-import com.cykj.service.TblpowerService;
-import com.cykj.service.TblrolePowerService;
-import com.cykj.service.TblroleService;
+import com.cykj.service.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -41,6 +38,8 @@ public class LoginController {
     private TblpowerService tblpowerService;
     @Autowired
     private TblrolePowerService tblrolePowerService;
+    @Autowired
+    private TblgoodsService tblgoodsService;
     @RequestMapping("/hello")
     public String hello(){
         return "hello";
@@ -301,4 +300,11 @@ public class LoginController {
     //  @SpringBootConfiguration    :实例化对象
     //  @configuration -->@component
     //  @EnableAutoConfiguration
+
+    //删除商品
+    @RequestMapping("/deleteGoods")
+    public boolean deleteGoods(String id){
+        boolean flag = tblgoodsService.deleteGoods(id);
+        return flag;
+    }
 }
