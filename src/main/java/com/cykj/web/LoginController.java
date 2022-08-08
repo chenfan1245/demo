@@ -45,14 +45,8 @@ public class LoginController {
         return "hello";
     }
 
-    /*进入页面*/
-    @RequestMapping("/userList")
-    @ApiOperation(value = "userList",notes = "获取用户界面")
-    public String userList(){
-        System.out.println("进入用户查询啦，傻子！");
-        return "userList";
-    }
-    /*查询数据*/
+
+    /*查询用户数据*/
     @ApiOperation(value = "find",notes = "查询用户数据方法")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "acc",value = "用户账号"),
@@ -124,12 +118,6 @@ public class LoginController {
         return json;
     }
 
-    /*进入角色页面*/
-    @RequestMapping("/roleManage")
-    public String roleManage(){
-        return "roleManage";
-    }
-
     /*查询角色*/
     @RequestMapping(value="/role",produces = { "text/html;charset=UTF-8;", "application/json;charset=UTF-8;" })
     public  String role(){
@@ -193,11 +181,6 @@ public class LoginController {
         String json = JSON.toJSONString(map);
         return json;
     }
-    /*进入权限管理界面*/
-    @RequestMapping("/test")
-    public String test(){
-        return "test";
-    }
     /*获取权限*/
     @RequestMapping("/addPower")
     public  String addPower(String powerIds,String roleId){
@@ -225,21 +208,7 @@ public class LoginController {
 
     }
 
-    @RequestMapping("/toRolePower")
-    public String toRolePower(){
-       return "rolePower";
-    }
-
-    @RequestMapping("/loginView")
-    public String login(){
-        return "login";//   页面名称
-    }
-
-    @RequestMapping("/toEnroll")
-    public String toEnroll(){
-            return "enroll";
-    }
-
+    /* 登录 */
     @RequestMapping("/doLogin")
     public  String doLogin(String acc, String pwd){
         TblUser tblUser = tbUserService.login(acc,pwd);
@@ -252,6 +221,7 @@ public class LoginController {
         }
     }
 
+    /* 注册 */
     @RequestMapping("/enroll")
     public String enroll(String acc, String pwd, String age,String address, MultipartFile fname,HttpServletRequest request){
         String fileName = fname.getOriginalFilename();//    图片名称
@@ -276,27 +246,21 @@ public class LoginController {
         }
     }
 
-    @RequestMapping("/checkacc")
-    public  String checkAcc(@RequestBody String acc){
-        System.out.println(acc);
-        return "2";
-    }
-
-    //1.springApplication 静态调用run方法，从静态run方法中new一个自己的实例，并调用实例的run方法
-    //springApplication 构造方法进行属性变量的初始化
-    //2.run方法
-        //2.1创建SpringApplicationRunListeners类，实例对象，starting（），启动监听
-        //2.2如何加载配置文件 xml/properties
+    // 1.springApplication 静态调用run方法，从静态run方法中new一个自己的实例，并调用实例的run方法
+    // springApplication 构造方法进行属性变量的初始化
+    // 2.run方法
+        // 2.1创建SpringApplicationRunListeners类，实例对象，starting（），启动监听
+        // 2.2如何加载配置文件 xml/properties
         //  2.2.1 <-- 通过ConfigurableEnvironment得到配置环境对象，
         //      new ApplicationServletEnvironment -->配置tomcat 运行环境，
         //  2.2.2prepareContext加载xml/properties
         //  2.2.3通知listener对象，配置环境已读取完成
-        //2.3 从ApplicationContextFactory中create一个ApplicationContext（上下文容器）对象
+        // 2.3 从ApplicationContextFactory中create一个ApplicationContext（上下文容器）对象
         //  （ApplicationContext 实例化类得到对象）
         //  @RestController：相当于在上下文容器注入，进行实例化生成对象
 
-    //三个注解
-    //@SpringBootApplication
+    // 三个注解
+    //  @SpringBootApplication
     //  @SpringBootConfiguration    :实例化对象
     //  @configuration -->@component
     //  @EnableAutoConfiguration

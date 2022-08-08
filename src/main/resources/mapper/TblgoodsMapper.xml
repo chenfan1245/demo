@@ -7,4 +7,8 @@
         delete from tblgoods where id=#{id}fc
     </delete>
 
+    <!--查询所有商品信息-->
+    <select id="findAllGoods" resultType="com.cykj.bean.Tblpower">
+
+    </select>
 </mapper>

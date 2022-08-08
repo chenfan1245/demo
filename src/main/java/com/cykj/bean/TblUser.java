@@ -1,70 +1,58 @@
 package com.cykj.bean;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel("用户实体类")
 public class TblUser {
-
-  private long id;
-  private long roleId;
-  private String acc;
-  private String pwd;
-  private String name;
+  @ApiModelProperty(value = "用户ID")
+  private String userid;
+  @ApiModelProperty(value = "用户姓名")
+  private String username;
+  @ApiModelProperty(value = "用户密码")
+  private String password;
+  @ApiModelProperty(value = "用户年龄")
   private long age;
+  @ApiModelProperty(value = "用户地址")
   private String address;
-  private String img;
+  @ApiModelProperty(value = "用户图片地址")
+  private String image;
 
   public TblUser() {
   }
 
-  public TblUser(String acc, String pwd, long age, String address, String img) {
-    this.acc = acc;
-    this.pwd = pwd;
+  public TblUser(String username, String password, long age, String address, String image) {
+    this.username = username;
+    this.password = password;
     this.age = age;
     this.address = address;
-    this.img = img;
+    this.image = image;
   }
 
-  public long getId() {
-    return id;
+  public String getUserid() {
+    return userid;
   }
 
-  public void setId(long id) {
-    this.id = id;
-  }
-
-
-  public long getRoleId() {
-    return roleId;
-  }
-
-  public void setRoleId(long roleId) {
-    this.roleId = roleId;
+  public void setUserid(String userid) {
+    this.userid = userid;
   }
 
 
-  public String getAcc() {
-    return acc;
+  public String getUsername() {
+    return username;
   }
 
-  public void setAcc(String acc) {
-    this.acc = acc;
-  }
-
-
-  public String getPwd() {
-    return pwd;
-  }
-
-  public void setPwd(String pwd) {
-    this.pwd = pwd;
+  public void setUsername(String username) {
+    this.username = username;
   }
 
 
-  public String getName() {
-    return name;
+  public String getPassword() {
+    return password;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setPassword(String password) {
+    this.password = password;
   }
 
 
@@ -86,12 +74,12 @@ public class TblUser {
   }
 
 
-  public String getImg() {
-    return img;
+  public String getImage() {
+    return image;
   }
 
-  public void setImg(String img) {
-    this.img = img;
+  public void setImage(String image) {
+    this.image = image;
   }
 
 }
