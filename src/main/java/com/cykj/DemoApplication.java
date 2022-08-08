@@ -12,6 +12,7 @@ public class DemoApplication {
         SpringApplication.run(DemoApplication.class, args);
         System.out.println("http://localhost:8080");
         System.out.println("不吃饭");
+        System.out.println("吃饭");
     }
 
 }
