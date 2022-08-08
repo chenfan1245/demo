@@ -3,12 +3,23 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cykj.mapper.TblgoodsMapper">
+    <!-- 删除商品 -->
     <delete id="deleteGoods" parameterType="String">
-        delete from tblgoods where id=#{id}fc
+        delete from tblgoods where id=#{id}
     </delete>
 
-    <!--查询所有商品信息-->
-    <select id="findAllGoods" resultType="com.cykj.bean.Tblpower">
-
+    <!-- 查询所有商品信息 -->
+    <select id="findAllGoods" resultType="com.cykj.bean.Tblgoods">
+        select * from tblgoods
+        <where>
+            <if test="goodsTitle != null and goodsTitle != ''">
+                and goodsTitle like concat ('%',#{goodsTitle},'%')
+            </if>
+            <if test="goodsType != null and goodsType != ''">
+                and goodsType like concat ('%',#{goodsType},'%')
+            </if>
+        </where>
     </select>
+
+
 </mapper>

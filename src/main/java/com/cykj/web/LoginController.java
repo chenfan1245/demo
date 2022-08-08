@@ -2,6 +2,7 @@ package com.cykj.web;
 
 import com.alibaba.fastjson.JSON;
 import com.cykj.bean.TblUser;
+import com.cykj.bean.Tblgoods;
 import com.cykj.bean.Tblpower;
 import com.cykj.bean.Tblrole;
 import com.cykj.service.*;
@@ -40,9 +41,19 @@ public class LoginController {
     private TblrolePowerService tblrolePowerService;
     @Autowired
     private TblgoodsService tblgoodsService;
-    @RequestMapping("/hello")
-    public String hello(){
-        return "hello";
+
+    /* 查询商品所有信息 */
+    @ApiOperation(value = "findAllGoods",notes = "查询用户数据方法")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "goodsTitle",value = "模糊查询的商品标题"),
+            @ApiImplicitParam(name = "goodsType",value = "模糊查询的商品类型")
+    })
+    @RequestMapping(value="/findAllGoods",produces = { "text/html;charset=UTF-8;", "application/json;charset=UTF-8;" })
+    public String findAllGoods(String goodsTitle,String goodsType){
+        System.out.println("------商品信息------");
+        List<Tblgoods> goodsList = tblgoodsService.findAllGoods(goodsTitle, goodsType);
+        String json = JSON.toJSONString(goodsList);
+        return json;
     }
 
 
