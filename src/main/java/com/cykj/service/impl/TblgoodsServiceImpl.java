@@ -18,4 +18,17 @@ public class TblgoodsServiceImpl implements TblgoodsService {
     public List<Tblgoods> findAllGoods(String goodsTitle, String goodsType) {
         return mapper.findAllGoods(goodsTitle, goodsType);
     }
+        
+    @Autowired
+    private TblgoodsMapper goodsMapper;
+
+    //删除商品
+    @Override
+    public boolean deleteGoods(String id) {
+        int re = goodsMapper.deleteGoods(id);
+        if (re!=0){
+            return true;
+        }
+        return false;
+    }
 }

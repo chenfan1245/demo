@@ -3,6 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cykj.mapper.TblgoodsMapper">
+    <delete id="deleteGoods" parameterType="String">
+        delete from tblgoods where id=#{id}fc
+    </delete>
+
     <!--查询所有商品信息-->
     <select id="findAllGoods" resultType="com.cykj.bean.Tblgoods">
         select * from tblgoods

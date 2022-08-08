@@ -8,4 +8,6 @@ import java.util.List;
 public interface TblgoodsService {
     // 查询所有商品信息
     List<Tblgoods> findAllGoods(String goodsTitle, String goodsType);
+    //删除商品
+    public boolean deleteGoods(String id);
 }

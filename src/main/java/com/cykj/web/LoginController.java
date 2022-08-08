@@ -54,6 +54,12 @@ public class LoginController {
         String json = JSON.toJSONString(goodsList);
         return json;
     }
+    //删除商品
+    @RequestMapping("/deleteGoods")
+    public boolean deleteGoods(String id){
+        boolean flag = tblgoodsService.deleteGoods(id);
+        return flag;
+    }
 
     /*查询用户数据*/
     @ApiOperation(value = "find",notes = "查询用户数据方法")
