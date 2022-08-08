@@ -55,12 +55,7 @@ public class LoginController {
         String json = JSON.toJSONString(goodsList);
         return json;
     }
-    //删除商品
-    @RequestMapping("/deleteGoods")
-    public boolean deleteGoods(String id){
-        boolean flag = tblgoodsService.deleteGoods(id);
-        return flag;
-    }
+
     //商品页面的修改
     @RequestMapping("/updGoods")
     public int updGoods(long id,String goodsTitle,double price,String goodsType){
@@ -68,7 +63,15 @@ public class LoginController {
         return updgoods;
     }
 
-
+    //删除商品
+    @RequestMapping("/deleteGoods")
+    public String deleteGoods(String id){
+        boolean flag = tblgoodsService.deleteGoods(id);
+        if (flag){
+            return "1";
+        }
+        return "0";
+    }
 
 
     /*查询用户数据*/
@@ -290,13 +293,5 @@ public class LoginController {
     //  @configuration -->@component
     //  @EnableAutoConfiguration
 
-    //删除商品
-    @RequestMapping("/deleteGoods")
-    public String deleteGoods(String id){
-        boolean flag = tblgoodsService.deleteGoods(id);
-        if (flag){
-            return "1";
-        }
-        return "0";
-    }
+
 }
