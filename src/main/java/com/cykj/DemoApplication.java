@@ -14,6 +14,9 @@ public class DemoApplication {
         System.out.println("不吃饭");
         System.out.println("吃饭");
         System.out.println("帆帆是🐖");
+        System.out.println("测试更新还是覆盖111");
+        System.out.println("!111");
+        System.out.println("11221");
         System.out.println("test test123456");
     }
 
