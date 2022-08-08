@@ -15,6 +15,6 @@ public interface TblgoodsMapper {
     List<Tblgoods> findAllGoods(@Param("goodsTitle")String goodsTitle,
                                 @Param("goodsType")String goodsType);
     //根据Id删除商品
-    public int deleteGoods(@Param("id")long id);
+    public int deleteGoods(@Param("id")String id);
 
 }
