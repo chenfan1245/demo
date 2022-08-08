@@ -14,7 +14,7 @@ public class DemoApplication {
         System.out.println("不吃饭");
         System.out.println("吃饭");
         System.out.println("帆帆是🐖");
-        System.out.println("test test123");
+        System.out.println("test test1234");
     }
 
 }
