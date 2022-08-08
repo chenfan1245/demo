@@ -11,4 +11,9 @@
     <select id="findAllGoods" resultType="com.cykj.bean.Tblpower">
 
     </select>
+    <!--增加商品信息-->
+    <insert id="addGoods" parameterType="com.cykj.bean.Tblgoods">
+    insert into tblgoods(goodsTitle,price,goodsType)values(#{goodsTitle},#{price},#{goodsType})
+    </insert>
+
 </mapper>

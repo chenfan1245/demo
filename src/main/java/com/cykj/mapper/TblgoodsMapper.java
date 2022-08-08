@@ -11,5 +11,8 @@ import java.util.List;
 public interface TblgoodsMapper {
     //根据Id删除商品
     public int deleteGoods(@Param("id") String id);
-
+    //增加商品
+    public int addGoods(@Param("goodsTitle")String goodsTitle,
+                        @Param("price")double price,
+                        @Param("goodsType")String goodsType);
 }

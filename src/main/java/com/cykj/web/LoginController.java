@@ -271,4 +271,14 @@ public class LoginController {
         boolean flag = tblgoodsService.deleteGoods(id);
         return flag;
     }
+    //增加商品
+    @RequestMapping("/addGoods")
+    public  String addGoods(String goodsTitle, double price, String goodsType){
+        boolean addGoods=tblgoodsService.addGoods(goodsTitle,price,goodsType);
+        if(addGoods){
+            return "1";
+        }
+        return "2";
+    }
+
 }

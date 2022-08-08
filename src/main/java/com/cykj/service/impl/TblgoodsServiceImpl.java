@@ -19,4 +19,15 @@ public class TblgoodsServiceImpl implements TblgoodsService {
         }
         return false;
     }
+    //增加商品
+    @Override
+    public boolean addGoods(String goodsTitle, double price, String goodsType) {
+        int num =goodsMapper.addGoods(goodsTitle,price,goodsType);
+        if(num>0){
+            return true;
+        }
+        return false;
+    }
+
+
 }
