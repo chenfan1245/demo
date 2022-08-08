@@ -11,16 +11,13 @@ import java.util.List;
 @Service
 public class TblgoodsServiceImpl implements TblgoodsService {
     @Autowired
-    private TblgoodsMapper mapper;
+    private TblgoodsMapper goodsMapper;
 
     // 查询所有商品信息
     @Override
     public List<Tblgoods> findAllGoods(String goodsTitle, String goodsType) {
-        return mapper.findAllGoods(goodsTitle, goodsType);
+        return goodsMapper.findAllGoods(goodsTitle, goodsType);
     }
-        
-    @Autowired
-    private TblgoodsMapper goodsMapper;
 
     //删除商品
     @Override
