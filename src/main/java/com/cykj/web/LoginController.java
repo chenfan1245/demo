@@ -50,7 +50,7 @@ public class LoginController {
     @RequestMapping("/userList")
     @ApiOperation(value = "userList",notes = "获取用户界面")
     public String userList(){
-        System.out.println("进入用户查询");
+        System.out.println("进入用户查询啦，傻子！");
         return "userList";
     }
     /*查询数据*/
