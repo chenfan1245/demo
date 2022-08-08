@@ -13,7 +13,6 @@ public class DemoApplication {
         System.out.println("http://localhost:8080");
         System.out.println("不吃饭");
         System.out.println("吃饭");
-        System.out.println("测试上传1111");
     }
 
 }
