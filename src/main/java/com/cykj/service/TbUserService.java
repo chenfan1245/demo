@@ -5,7 +5,7 @@ import com.cykj.bean.TblUser;
 import com.cykj.bean.Tblpower;
 
 import java.util.List;
-
+//hahahaha
 public interface TbUserService {
     //  登录
     TblUser login(String acc, String pwd);
