@@ -30,6 +30,7 @@ import java.util.Map;
 @RequestMapping("/admin")
 @Api(value = "接口说明",tags = "接口说明")
 public class LoginController {
+
     @Autowired
     private TbUserService tbUserService;
     @Autowired
@@ -69,6 +70,7 @@ public class LoginController {
 
 
 
+
     /*查询用户数据*/
     @ApiOperation(value = "find",notes = "查询用户数据方法")
     @ApiImplicitParams({
@@ -84,7 +86,7 @@ public class LoginController {
         String json = JSON.toJSONString(list);
         return json;
     }
-    /*删除用户*/
+    /*删除*/
     @ApiOperation(value = "del",notes = "删除用户方法")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id",value = "用户ID"),
@@ -99,7 +101,7 @@ public class LoginController {
             return "2";
         }
     }
-    /*添加用户*/
+    /*添加*/
     @ApiOperation(value = "add",notes = "新增用户方法")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "acc",value = "用户账号"),
@@ -116,7 +118,7 @@ public class LoginController {
             return "2";
         }
     }
-    /*修改用户*/
+    /*修改*/
     @ApiOperation(value = "upd",notes = "修改用户方法")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id",value = "用户ID"),
@@ -287,4 +289,14 @@ public class LoginController {
     //  @SpringBootConfiguration    :实例化对象
     //  @configuration -->@component
     //  @EnableAutoConfiguration
+
+    //删除商品
+    @RequestMapping("/deleteGoods")
+    public String deleteGoods(String id){
+        boolean flag = tblgoodsService.deleteGoods(id);
+        if (flag){
+            return "1";
+        }
+        return "0";
+    }
 }
