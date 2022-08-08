@@ -21,5 +21,9 @@
         </where>
     </select>
 
+    <!--修改商品信息-->
+    <update id="updGoods">
+        update tblgoods set goodsTitle=#{goodsTitle},price=#{price},goodsType=#{goodsType} where id=#{id}
+    </update>
 
 </mapper>

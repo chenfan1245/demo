@@ -16,5 +16,10 @@ public interface TblgoodsMapper {
                                 @Param("goodsType")String goodsType);
     //根据Id删除商品
     public int deleteGoods(@Param("id")String id);
-
+    //根据id修改商品信息
+    int updGoods(@Param("goodsTitle")String goodsTitle,
+                 @Param("price")double price,
+                 @Param("goodsType")String goodsType,
+                 @Param("id")long id
+                 );
 }

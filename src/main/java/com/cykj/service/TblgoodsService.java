@@ -10,4 +10,6 @@ public interface TblgoodsService {
     List<Tblgoods> findAllGoods(String goodsTitle, String goodsType);
     //删除商品
     public boolean deleteGoods(String id);
+    //修改商品信息
+    int updGoods(String goodsTitle, double price, String goodsType, long id);
 }

@@ -60,6 +60,14 @@ public class LoginController {
         boolean flag = tblgoodsService.deleteGoods(id);
         return flag;
     }
+    //商品页面的修改
+    @RequestMapping("/updGoods")
+    public int updGoods(long id,String goodsTitle,double price,String goodsType){
+        int updgoods = tblgoodsService.updGoods(goodsTitle, price, goodsType, id);
+        return updgoods;
+    }
+
+
 
     /*查询用户数据*/
     @ApiOperation(value = "find",notes = "查询用户数据方法")

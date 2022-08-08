@@ -28,4 +28,9 @@ public class TblgoodsServiceImpl implements TblgoodsService {
         }
         return false;
     }
+
+    @Override
+    public int updGoods(String goodsTitle, double price, String goodsType, long id) {
+        return goodsMapper.updGoods(goodsTitle, price, goodsType, id);
+    }
 }
