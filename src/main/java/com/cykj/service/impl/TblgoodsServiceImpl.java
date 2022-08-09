@@ -21,12 +21,9 @@ public class TblgoodsServiceImpl implements TblgoodsService {
 
     //删除商品
     @Override
-    public boolean deleteGoods(String id) {
+    public int deleteGoods(String id) {
         int re = goodsMapper.deleteGoods(id);
-        if (re!=0){
-            return true;
-        }
-        return false;
+        return re;
     }
     //增加商品
     @Override

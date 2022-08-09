@@ -9,7 +9,7 @@ public interface TblgoodsService {
     // 查询所有商品信息
     List<Tblgoods> findAllGoods(String goodsTitle, String goodsType);
     //删除商品
-    public boolean deleteGoods(String id);
+    public int deleteGoods(String id);
     //增加商品
     public boolean addGoods(String goodsTitle,double price,String goodsType);
     //修改商品信息

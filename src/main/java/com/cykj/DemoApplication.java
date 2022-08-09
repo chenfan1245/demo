@@ -13,14 +13,9 @@ public class DemoApplication {
         System.out.println("http://localhost:8080");
         System.out.println("不吃饭");
         System.out.println("吃饭");
-        System.out.println("帆帆是🐖");
-        System.out.println("测试更新还是覆盖111");
-        System.out.println("!111");
-        System.out.println("景庆大老二");
-        System.out.println("11221");
-        System.out.println("test test123456");
         System.out.println("11111222222222222222222222111w2");
         System.out.println("stupid");
+        System.out.println("搭建服务器");
     }
 
 }

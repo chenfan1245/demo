@@ -66,8 +66,8 @@ public class LoginController {
     //删除商品
     @RequestMapping("/deleteGoods")
     public String deleteGoods(String id){
-        boolean flag = tblgoodsService.deleteGoods(id);
-        if (flag){
+        int flag = tblgoodsService.deleteGoods(id);
+        if (flag!=0){
             return "1";
         }
         return "0";
